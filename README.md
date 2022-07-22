@@ -43,9 +43,13 @@ Hypref Mall是开源的微服务商城系统
 ![输入图片说明](image.png)
 
 执行 ./initDocker.py 一键生成 docker容器
+
 5.  服务compoer安装vendor扩展(可能会比较耗时)
+
 执行 ./initVendor.py 一键安装 或者进入单个容器中，进入项目目录下:composer install
+
 6.  修改项目下env配置文件，或者执行 ./initEnv.py 一键修改
+
 7.  执行 hypref_mall_service.exe 根据命令一键启动所有服务
 
 #### 使用说明
@@ -56,4 +60,5 @@ Hypref Mall是开源的微服务商城系统
 #### 特点
 
 1.  简化微服务复杂的配置与调用，像开发单应用一样开发微服务系统！
+
 2.  封装很多提升开发速度的工具，服务端一键生成对外初始增删改查的服务RPC，路由层一键生成微服务的各项配置...
