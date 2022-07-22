@@ -4,7 +4,7 @@
 Hypref Mall是开源的微服务商城系统
 
 #### 软件架构
-![输入图片说明](image.png)
+![输入图片说明](123.png)
 
 
 #### 安装说明
@@ -25,7 +25,9 @@ Hypref Mall是开源的微服务商城系统
     或者：进入到安装目录后执行一键下载脚本 ./install.py
 3.  初始化DB信息，执行 ./initDb.py
 4.  本地确认docker部署完毕：
+
 ![输入图片说明](image.png)
+
 执行 ./initDocker.py 一键生成 docker容器
 5.  服务compoer安装vendor扩展(可能会比较耗时)
 执行 ./initVendor.py 一键安装 或者进入单个容器中，进入项目目录下:composer install
