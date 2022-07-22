@@ -12,18 +12,32 @@ Hypref Mall是开源的微服务商城系统
 
 1.  提前准备好Docker、Python3、MySQL、Redis。
 2.  代码下载
+
     仓库地址：
+
             1. 路由层：xxxxx----xxxxx@gitee.com
+
             2. 图片API:
+
             3. 支付API:
+
             4. 配置服务
+
             5. 商品服务
+
             6. 订单服务
+
             7、会员服务
+
             8、uniapp端 生成小程序
+
             9、admin后台管理
+
     或者：进入到安装目录后执行一键下载脚本 ./install.py
+
+
 3.  初始化DB信息，执行 ./initDb.py
+
 4.  本地确认docker部署完毕：
 
 ![输入图片说明](image.png)
