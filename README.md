@@ -11,6 +11,7 @@ Hypref Mall是开源的微服务商城系统
 ##### 第一次安装会比较耗时，建议使用自带脚本工具进行安装，整个过程需要10-30分钟！！
 
 1.  提前准备好Docker、Python3、MySQL、Redis。
+
 2.  代码下载
 
     仓库地址：
@@ -38,19 +39,23 @@ Hypref Mall是开源的微服务商城系统
 
 3.  初始化DB信息，执行 ./initDb.py
 
+
 4.  本地确认docker部署完毕：
 
-![输入图片说明](image.png)
+    ![输入图片说明](image.png)
 
-执行 ./initDocker.py 一键生成 docker容器
+    执行 ./initDocker.py 一键生成 docker容器
 
 5.  服务compoer安装vendor扩展(可能会比较耗时)
 
-执行 ./initVendor.py 一键安装 或者进入单个容器中，进入项目目录下:composer install
+    执行 ./initVendor.py 一键安装 或者进入单个容器中，进入项目目录下:composer install
+
 
 6.  修改项目下env配置文件，或者执行 ./initEnv.py 一键修改
 
+
 7.  执行 hypref_mall_service.exe 根据命令一键启动所有服务
+
 
 #### 使用说明
 
