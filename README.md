@@ -1,7 +1,7 @@
 # Hypref Mall
 
 #### 介绍
-Hypref Mall是开源的微服务商城系统
+Hypref Mall 是一套 开源高性能的微服务商城系统
 
 #### 软件架构
 ![输入图片说明](123.png)
