@@ -46,9 +46,9 @@ Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，�
 
 4.  docker部署：
 
-    其中：“D:\\project\\xxx\\xxx” 为本地项目路径
+    其中：“D:\\project\\xxx\\xxx” 为本地项目路径 --name xxx 为 容器名
 
-    命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name admin  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh hyperf/hyperf:7.4-alpine-v3.11-swoole```
+    命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name xxxx  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh hyperf/hyperf:7.4-alpine-v3.11-swoole```
 
 
     执行 ./initDocker.py 一键生成 docker容器
@@ -73,4 +73,6 @@ Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，�
 
 1.  简化微服务复杂的配置与调用过程，像开发单应用一样开发微服务系统！
 
-2.  封装很多提升开发速度的工具，服务端一键生成对外初始增删改查的服务RPC，路由层一键生成微服务的各项配置...
+2.  服务--一键生成对外的 增删改查 rpc服务.
+
+3.  路由--一键生成服务的调用配置，让关注点聚焦业务.
