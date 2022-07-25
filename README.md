@@ -3,6 +3,10 @@
 #### 介绍
 Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，高性价比的企业级应用。
 
+
+初始化脚本暂未编写...(2022/07/25)
+
+
 #### 软件架构
 ![输入图片说明](123.png)
 
@@ -16,19 +20,19 @@ Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，�
 
     仓库地址：
 
-            1. 路由层：xxxxx----xxxxx@gitee.com
+            1. 路由层：git@gitee.com:scwlkj/hypref_mall_admin.git
 
-            2. 图片API:
+            2. 图片API:git@gitee.com:scwlkj/hypref_mall_images.git
 
-            3. 支付API:
+            3. 支付API：git@gitee.com:scwlkj/hypref_mall_pay.git
 
-            4. 配置服务
+            4. 配置服务：git@gitee.com:scwlkj/hypref_mall_config.git
 
-            5. 商品服务
+            5. 商品服务：git@gitee.com:scwlkj/hypref_mall_goods.git
 
-            6. 订单服务
+            6. 订单服务:git@gitee.com:scwlkj/hypref_mall_order.git
 
-            7、会员服务
+            7、会员服务:git@gitee.com:scwlkj/hypref_mall_member.git
 
             8、uniapp端 生成小程序
 
@@ -40,9 +44,12 @@ Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，�
 3.  初始化DB信息，执行 ./initDb.py
 
 
-4.  本地确认docker部署完毕：
+4.  docker部署：
 
-    ![输入图片说明](image.png)
+    其中：“D:\\project\\xxx\\xxx” 为本地项目路径
+
+    命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name admin  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh hyperf/hyperf:7.4-alpine-v3.11-swoole```
+
 
     执行 ./initDocker.py 一键生成 docker容器
 
