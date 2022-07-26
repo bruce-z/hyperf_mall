@@ -3,7 +3,7 @@
 #### 介绍
 Hypref Mall 是一套开源的高性能微服务商城系统。高扩展性，高性价比的企业级应用。
 
-2、3、4 可通过脚本命令（99）安装，install目录下的 hypref_mall_service.exe
+2、3、4 可通过脚本命令``99``安装，详细：install/hypref_mall_service.exe
 
 
 #### 软件架构
