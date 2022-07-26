@@ -1,20 +1,19 @@
 # Hypref Mall
 
 #### 介绍
-Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，高性价比的企业级应用。
+Hypref Mall 是一套开源的高性能微服务商城系统。高扩展性，高性价比的企业级应用。
 
-
-2、4、5 可通过脚本命令（99）执行： hypref_mall_service.exe
+2、3、4 可通过脚本命令（99）执行： hypref_mall_service.exe
 
 
 #### 软件架构
-![输入图片说明](123.png)
+![输入图片说明](images/123.png)
 
 
 #### 安装说明
 ##### 第一次安装会比较耗时，建议使用自带脚本工具进行安装，整个过程需要10-30分钟！！
 
-1.  提前准备好Docker、Python3、MySQL、Redis。
+1.  提前准备好Docker、MySQL、Redis。
 
 2.  代码下载
 
@@ -38,26 +37,23 @@ Hypref Mall 是一套开源的高性能微服务商城系统，高扩展性，�
 
             9、admin后台管理
 
-
-3.  初始化DB信息，执行 ./initDb.py
-    sql脚本地址：项目下 -> static/SQL/sql.sql
-
-4.  docker部署：
+3.  docker部署：
 
     其中：“D:\\project\\xxx\\xxx” 为本地项目路径 --name xxx 为 容器名
 
     命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name xxxx  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh hyperf/hyperf:7.4-alpine-v3.11-swoole```
 
 
-5.  服务compoer安装vendor扩展(可能会比较耗时)
+4.  服务compoer安装vendor扩展(可能会比较耗时)
 
-    进入单个容器的项目目录下:composer install
+    进入容器的项目根目录下执行:composer install
 
+5.  初始化DB信息，执行 ./initDb.py
+    sql脚本地址：项目下 -> static/SQL/sql.sql
 
 6.  修改项目下env配置文件
 
-
-7.  执行 hypref_mall_service.exe 根据命令一键启动所有服务
+7.  启动所有服务
 
 
 #### 使用说明
