@@ -1,9 +1,7 @@
 # Hypref Mall
 
 #### 介绍
-Hypref Mall 是一套开源的高性能微服务商城系统。高扩展性，高性价比的企业级应用。
-
-2、3、4 可通过脚本命令``99``安装，详细：install/hypref_mall_service.exe
+Hypref Mall 是一套开源的高性能微服务商城系统。高扩展、高性价比的企业级应用。
 
 
 #### 软件架构
@@ -13,47 +11,53 @@ Hypref Mall 是一套开源的高性能微服务商城系统。高扩展性，�
 #### 安装说明
 ##### 第一次安装会比较耗时，建议使用自带脚本工具进行安装，整个过程需要10-30分钟！！
 
-1.  提前准备好Docker、MySQL、Redis。
+    提前准备好Docker. 默认端口占用:5503-5508 5566-5568。
 
-2.  代码下载
+1. 自动安装
+
+   1.windows 下 运行install目录下的 hypref_mall_service.exe
+   2. linux 下 执行 ./install/install.py 
+
+2. 代码下载
 
     仓库地址：
 
-            1. 路由层：git@gitee.com:scwlkj/hypref_mall_admin.git
+            1. 路由层：https://gitee.com/scwlkj/hypref_mall_admin.git
 
-            2. 图片API:git@gitee.com:scwlkj/hypref_mall_images.git
+            2. 图片API:https://gitee.com/scwlkj/hypref_mall_images.git
 
-            3. 支付API：git@gitee.com:scwlkj/hypref_mall_pay.git
+            3. 支付API：https://gitee.com/scwlkj/hypref_mall_pay.git
 
-            4. 配置服务：git@gitee.com:scwlkj/hypref_mall_config.git
+            4. 配置服务：https://gitee.com/scwlkj/hypref_mall_config.git
 
-            5. 商品服务：git@gitee.com:scwlkj/hypref_mall_goods.git
+            5. 商品服务：https://gitee.com/scwlkj/hypref_mall_goods.git
 
-            6. 订单服务:git@gitee.com:scwlkj/hypref_mall_order.git
+            6. 订单服务:https://gitee.com/scwlkj/hypref_mall_order.git
 
-            7、会员服务:git@gitee.com:scwlkj/hypref_mall_member.git
+            7. 会员服务:https://gitee.com/scwlkj/hypref_mall_member.git
+        
+        下载对应的项目代码    
 
-            8、uniapp端 生成小程序
-
-            9、admin后台管理
-
-3.  docker部署：
+3. docker部署：
 
     其中：“D:\\project\\xxx\\xxx” 为本地项目路径 --name xxx 为 容器名
 
     命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name xxxx  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh hyperf/hyperf:7.4-alpine-v3.11-swoole```
 
 
-4.  服务compoer安装vendor扩展(可能会比较耗时)
+4. 安装项目vendor扩展(相对比较耗时)
 
     进入容器的项目根目录下执行:composer install
 
-5.  初始化DB信息，执行 ./initDb.py
+5. 初始化数据表
     sql脚本地址：项目下 -> static/SQL/sql.sql
 
-6.  修改项目下env配置文件
+6. 修改env配置文件
+   1. 修改数据库，填写自定义的数据库信息
+   2. 修改redis信息
+   3. 修改服务相关服务的IP和PORT.
 
-7.  启动所有服务
+7. 启动所有服务
 
 
 #### 使用说明
