@@ -15,9 +15,10 @@ Hypref Mall 是一套开源的高性能微服务商城系统。高扩展、高�
 
 1. 自动安装(推荐)
    1. windows 下 运行install目录下的 hypref_mall_service.exe 按照命令提示进行操作
-   2. linux 下 执行 ./install/install.py 
+   2. linux 下 执行 ./install/install.py
+   安装后测试请求接口:http://127.0.0.1:5566/app/index/index 
 
-3. 代码下载
+2. 代码下载
 
     仓库地址：
 
@@ -37,7 +38,7 @@ Hypref Mall 是一套开源的高性能微服务商城系统。高扩展、高�
         
         下载对应的项目代码    
 
-4. docker部署：
+3. docker部署：
 
     其中：“D:\\project\\xxx\\xxx” 为本地项目路径 --name xxx 为 容器名
 
