@@ -14,8 +14,8 @@ Hypref Mall 是一套开源的高性能微服务商城系统。高扩展、高�
     提前准备好Docker. 默认端口占用:5503-5508 5566-5568。
 
 1. 自动安装(推荐)
-   1. windows 下 运行install目录下的 hypref_mall_service.exe 按照命令提示进行操作
-   2. linux 下 执行 ./install/install.py
+   1. windows 下 运行install目录下的 hypref_mall_service.exe 命令``99``一键安装
+   2. linux 下 执行 python ./main.py (python版本 > 3.0)
    
    安装后测试请求接口:http://127.0.0.1:5566/app/index/index 
 
