@@ -13,15 +13,15 @@ Hypref Mall 是一套开源的高性能微服务商城系统。高扩展、高�
 
     提前准备好Docker. 默认端口占用:5503-5508 5566-5568。
 
-1. 自动安装(推荐)
+i. 自动安装(推荐)
    1. windows 下 运行install目录下的 hypref_mall_service.exe 命令``99``一键安装
    2. linux 下 执行 python ./main.py (python版本 > 3.0)
    
    安装后测试请求接口:http://127.0.0.1:5566/app/index/index 
 
-2. 代码下载
+ii. 手动安装
 
-    仓库地址：
+    1. 代码下载， 仓库地址：
 
             1. 路由层：https://gitee.com/scwlkj/hypref_mall_admin.git
 
@@ -39,27 +39,27 @@ Hypref Mall 是一套开源的高性能微服务商城系统。高扩展、高�
         
         下载对应的项目代码    
 
-3. docker部署：
+    2. docker部署：
 
-    其中：“D:\\project\\xxx\\xxx” 为本地项目路径 --name xxx 为 容器名
+        其中：“D:\\project\\xxx\\xxx” 为本地项目路径 --name xxx 为 容器名
 
-    命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name xxxx  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh hyperf/hyperf:7.4-alpine-v3.11-swoole```
+        命令：```docker run -v D:\\project\\xxx\\xxx:/data/project --name xxxx  -p 5566:5566 -it --privileged -u root --entrypoint /bin/sh         hyperf/hyperf:7.4-alpine-v3.11-swoole```
 
 
-4. 安装项目vendor扩展(相对比较耗时)
+    3. 安装项目vendor扩展(相对比较耗时)
 
-    进入容器的项目根目录下执行:composer install
+        进入容器的项目根目录下执行:composer install
 
-5. 初始化数据表
+    4. 初始化数据表
 
-    sql脚本地址：项目下 -> static/SQL/sql.sql
+        sql脚本地址：项目下 -> static/SQL/sql.sql
 
-6. 修改env配置文件
-   1. 修改数据库，填写自定义的数据库信息
-   2. 修改redis信息
-   3. 修改服务相关服务的IP和PORT.
+    5. 修改env配置文件
+       1. 修改数据库，填写自定义的数据库信息
+       2. 修改redis信息
+       3. 修改服务相关服务的IP和PORT.
 
-7. 启动所有服务
+    6. 启动所有服务
 
 
 #### 使用说明
