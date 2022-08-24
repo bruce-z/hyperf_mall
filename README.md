@@ -94,4 +94,5 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 #### 管理后台预览
 <img src="/images/pc/order.png" width="90%">
+<img src="/images/pc/goods.png" width="90%">
 
