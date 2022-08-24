@@ -76,12 +76,6 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 6. 当前项目为纯后端Api接口，小程序端用uniapp实现，查看源码，请跳转至：[小程序端](https://gitee.com/scwlkj/hypref_mall_wechat) 查看
 7. 管理后台代码目前开发中，开发进度50%，预计1-2个月会完成并全部开源
 
-#### 小程序端预览
-<img src="/images/xcx/index.jpg" width="20%">
-<img src="/images/xcx/goods_detail.jpg" width="20%">
-<img src="/images/xcx/order.jpg" width="20%">
-<img src="/images/xcx/my.jpg" width="20%">
-
 
 #### 特点
 
@@ -91,3 +85,13 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 3. 路由服务内置生成 服务间调用的配置 命令，免去每个接口都手动去配置一遍的烦恼，让关注点聚焦业务.
 4. 基于Hypref，具有高性能、高并发处理优势，具备协程级控制，服务的注册、接口限流、接口熔断、服务监控等。
+
+#### 小程序端预览
+<img src="/images/xcx/index.jpg" width="20%">
+<img src="/images/xcx/goods_detail.jpg" width="20%">
+<img src="/images/xcx/order.jpg" width="20%">
+<img src="/images/xcx/my.jpg" width="20%">
+
+#### 管理后台预览
+<img src="/images/pc/order.png" width="90%">
+
