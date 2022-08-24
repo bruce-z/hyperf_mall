@@ -75,10 +75,10 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 7. 管理后台代码目前开发中，开发进度50%，预计1-2个月会完成并全部开源
 
 #### 小程序端预览
-![首页](images/xcx/index.jpg)
-![详情页](images/xcx/goods_detail.jpg)
-![个人中心](images/xcx/my.jpg)
-![订单列表](images/xcx/order.jpg)
+<img src=""/images/xcx/index.jpg" width="20%">
+<img src=""/images/xcx/goods_detail.jpg" width="20%">
+<img src=""/images/xcx/my.jpg" width="20%">
+
 
 #### 特点
 
