@@ -8,6 +8,9 @@ import config
 import time
 import initDb
 
+# 混淆判断字符串
+mixString = "thisisjustnotifyend"
+
 
 def init():
     # mysql服务
@@ -18,10 +21,56 @@ def init():
     task = threading.Thread(target=initRedis)
     task.start()
 
+    # web_service服务
+    task = threading.Thread(target=initWebAdmin)
+    task.start()
+
     # 业务服务
     for service in config.services:
-        task = threading.Thread(target=initService, args=(service,))
-        task.start()
+        if service['git_name'] != 'hypref_mall_font':
+            task = threading.Thread(target=initService, args=(service,))
+            task.start()
+
+
+# 初始化 web-admin
+def initWebAdmin():
+    cc = os.popen("docker version")
+    if 'Version' not in cc.read():
+        print("\ndocker命令不存在，请检测docker是否已安装\n")
+        return False
+
+    service = config.web_admin
+    path = config.base_dir + service['git_name']
+    git_addr = config.git_pre + service['git_name'] + '.git'
+
+    if not os.path.isdir(path):
+        os.makedirs(path)
+        print("\n创建目录： " + path + "\n")
+        aa = os.popen('git clone ' + git_addr + ' ' + path)
+    else:
+        os.chdir(path)
+        aa = os.popen('git pull ')
+
+    print("\n开始下载代码" + path + "\n")
+
+    if mixString not in aa.read():
+        os.chdir(path)
+        ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build:prod ')
+        print("\n web_admin 代码初始化完成,开始build\n")
+        if 'ERR!' in ee.read():
+            print("\n 项目构建失败，请重试!\n")
+            return False
+
+        if mixString not in ee.read():
+            print("\n 建成功!! 开始初始运行环境\n")
+            cc = os.popen("docker pull nginx")
+            if mixString not in cc.read():
+                ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                if mixString not in ff.read():
+                    print("\n " + service['images'] + "镜像创建完成\n")
+                    os.popen('docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                             + service['images'])
+                    print("\n web admin已启动\n")
 
 
 def initMysql():
@@ -74,7 +123,7 @@ def initService(service):
     print("\n开始下载代码" + git_addr + "\n")
 
     aa = os.popen('git clone ' + git_addr + ' ' + path)
-    if 'thisisjustnotifyend' not in aa.read():
+    if mixString not in aa.read():
         cc = os.popen("docker version")
         if 'Version' not in cc.read():
             print("\n docker命令未识别\n")
@@ -89,11 +138,11 @@ def initService(service):
                          " --privileged -u root  " \
                          "--name " + service['service_name'] + " -dit " + config.docker_hypref_image
             ff = os.popen(run_string)
-            if 'thisisjustnotifyend' not in ff.read():
+            if mixString not in ff.read():
                 print("\n开始安装项目扩展\n")
                 ee = os.popen('docker exec ' + service['service_name'] + ' bash -c "cd ' + config.service_project_dir
                               + '&& composer install" ')
-                if 'thisisjustnotifyend' not in ee.read():
+                if mixString not in ee.read():
                     print("\n " + service['service_name'] + "扩展安装完成\n")
 
                     makeCopyCmd(path)

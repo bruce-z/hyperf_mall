@@ -21,24 +21,61 @@ for index, name in enumerate(ch_names):
     index > 0 and cmd_service.append(str(index) + '1')
     service_index.append(str(index))
 
+# 混淆判断字符串
+mixString = "thisisjustnotifyend"
+
+
+def reload_web_admin():
+    service = config.web_admin
+    path = config.base_dir + service['git_name']
+    os.chdir(path)
+    aa = os.popen('git pull ')
+
+    if mixString not in aa.read():
+        os.chdir(path)
+        ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build:prod ')
+        print("\n web_admin 代码初始化完成,开始build\n")
+        if 'ERR!' in ee.read():
+            print("\n 项目构建失败，请重试!\n")
+            return False
+
+        if mixString not in ee.read():
+            print("\n 构建成功!! 开始初始化运行环境\n")
+            cc = os.popen("docker pull nginx")
+            if mixString not in cc.read():
+                ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                if mixString not in ff.read():
+                    mm = os.popen('docker rm -f ' + service['images'])
+                    if mixString not in mm.read():
+                        print("\n " + service['images'] + "镜像已更新\n")
+                        os.popen('docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                                 + service['images'])
+                        print("\n web admin已启动\n")
+
 
 def reload_service(name):
-    try:
-        print("\n容器" + name + "关闭PHP进程...\n")
-        os.system('docker start ' + name)
-        os.system('docker exec ' + name + ' killall php')
-        os.system('docker exec ' + name + ' php ' + config.service_project_dir + '/bin/hyperf.php start')
-    finally:
-        print("\n容器" + name + "服务已开始重启 ...\n")
+    if name == 'hypref_mall_font':
+        reload_web_admin()
+    else:
+        try:
+            ee = os.popen('docker exec ' + name + ' bash -c "cd ' + config.service_project_dir + '&& git pull" ')
+            if 'notkissme' in ee:
+                print("\n容器" + name + "git已pull\n")
+
+            print("\n容器" + name + "关闭PHP进程...\n")
+            os.system('docker start ' + name)
+            os.system('docker exec ' + name + ' killall php')
+            os.system('docker exec ' + name + ' php ' + config.service_project_dir + '/bin/hyperf.php start')
+        finally:
+            print("\n容器" + name + "服务已开始重启 ...\n")
 
 
 def start_container():
 
-    cm = input("  Hypref Mall 服务管理命令集成\n\n"
+    cm = input("  Hypref Mall 服务管理面板\n\n"
                + string +
-               "-----------------------------\n\n"
-               "    服务脚本命令：编号后面+1\n"
-               "    例:会员服务命令 11\n"
+               "\n\n-----------------------------\n\n"
+               "    服务执行Hypref命令：服务编号后面+1\n"
                "    特殊命令 99->一键安装\n\n"
                "-----------------------------\n "
                "请输入要执行的命令编号：")
@@ -47,8 +84,11 @@ def start_container():
         if cm in cmd_service:
             c = cm[0:1]
             mmm = input("输入命令,如：lazy:get config\n")
-            os.system('docker exec ' + serviceName[int(c)] + ' php ' + config.service_project_dir
-                      + '/bin/hyperf.php ' + mmm)
+            if serviceName[int(c)] == 'hypref_mall_font':
+                print("\nweb_admin不支持该命令\n")
+            else:
+                os.system('docker exec ' + serviceName[int(c)] + ' php ' + config.service_project_dir
+                          + '/bin/hyperf.php ' + mmm)
         else:
             print("\n命令未识别，请输入正确的命令\n")
             start_container()
