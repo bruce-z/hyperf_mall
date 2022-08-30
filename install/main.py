@@ -28,8 +28,17 @@ mixString = "thisisjustnotifyend"
 def reload_web_admin():
     service = config.web_admin
     path = config.base_dir + service['git_name']
-    os.chdir(path)
-    aa = os.popen('git pull ')
+    git_addr = config.git_pre + service['git_name'] + '.git'
+
+    if not os.path.isdir(path):
+        os.makedirs(path)
+        print("\n创建目录： " + path + "\n")
+        aa = os.popen('git clone ' + git_addr + ' ' + path)
+    else:
+        os.chdir(path)
+        aa = os.popen('git pull ')
+
+    print("\n开始下载代码" + path + "\n")
 
     if mixString not in aa.read():
         os.chdir(path)
