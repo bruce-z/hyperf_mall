@@ -73,7 +73,7 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 3. 要求 MySQL 版本 >= 5.7
 4. 要求 Redis 版本 >= 5.2
 5. 一键安装时通过修改配置文件，实现自定义服务端口、服务名、数据库、地址等信息
-6. 当前项目为纯后端Api接口，小程序端用uniapp实现，查看源码，请跳转至：[小程序端](https://gitee.com/scwlkj/hypref_mall_wechat) 查看
+6. 当前项目为纯后端Api接口，小程序端用uniapp实现，查看源码，请跳转至：[小程序端](https://gitee.com/scwlkj/hypref_mall_wechat) 
 7. 管理后台代码目前开发中，开发进度50%，预计1-2个月会完成并全部开源
 
 
