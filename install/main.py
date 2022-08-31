@@ -44,7 +44,7 @@ def reload_web_admin():
         os.chdir(path)
         ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build:prod ')
         print("\n web_admin 代码初始化完成,开始build\n")
-        if 'ERR!' in ee.read():
+        if 'ERR' in ee.read():
             print("\n 项目构建失败，请重试!\n")
             return False
 
