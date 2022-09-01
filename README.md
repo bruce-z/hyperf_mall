@@ -75,8 +75,17 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 2. 要求 PHP 版本 >= 7.4
 3. 要求 MySQL 版本 >= 5.7
 4. 要求 Redis 版本 >= 5.2
-5. 小程序端基于uniapp实现，[线上小程序端地址](https://gitee.com/scwlkj/hypref_mall_wechat) 
-6. 管理后台基于vue_admin_template, [hypref_mall管理后台](https://gitee.com/scwlkj/hypref_mall_font)，目前开发中，预计1个月内正式发版。
+
+### 小程序端
+
+体验传送门：http://admin.51job.top
+[线上小程序端地址](https://gitee.com/scwlkj/hypref_mall_wechat) 
+
+### 管理后台
+
+体验传送门：http://admin.51job.top
+[管理后台地址 ](https://gitee.com/scwlkj/hypref_mall_font)
+
 
 
 ### 特色
