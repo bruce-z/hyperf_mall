@@ -1,7 +1,7 @@
-# Hypref Mall
+# Hyperf Mall
 
 ### 介绍
-Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩展、高性价比的企业级应用。实现通用的商品、购物车、订单、支付等购物流程，封装了大量易用的基础方法，可以用来学习，也可以用来做二次开发。
+Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩展、高性价比的企业级应用。实现通用的商品、购物车、订单、支付等购物流程，封装了大量易用的基础方法，可以用来学习，也可以用来做二次开发。
 
 ### 项目初衷
 1. 简化微服务的配置与调用过程，像开发单应用一样开发微服务系统！
@@ -13,12 +13,12 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 
 ### 安装说明
-   _第一次安装，建议使用Hyprf Mall服务管理面板进行安装；
+   _第一次安装，建议使用Hyperf Mall服务管理面板进行安装；
 
     提前准备好Docker, Node >= v10.21.0. 系统默认占用端口:5503-5508 5566-5569。
 
 - 自动安装(推荐！)
-   1. windows 下 运行install目录下的 hypref_mall_service.exe 命令``99``一键安装
+   1. windows 下 运行install目录下的 hyperf_mall_service.exe 命令``99``一键安装
    2. linux 下 执行 python ./main.py (python版本 > 3.0)
     运行后如下图：
   
@@ -80,13 +80,13 @@ Hypref Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 体验传送门：暂无
 
-[线上小程序端地址](https://gitee.com/scwlkj/hypref_mall_wechat) 
+[线上小程序端地址](https://gitee.com/scwlkj/hyperf_mall_wechat) 
 
 ### 管理后台
 
 体验传送门：https://admin.51job.top
 
-[管理后台地址 ](https://gitee.com/scwlkj/hypref_mall_font)
+[管理后台地址 ](https://gitee.com/scwlkj/hyperf_mall_font)
 
 
 
