@@ -81,13 +81,13 @@ def reload_service(name):
 
 def start_container():
 
-    cm = input("  Hypref Mall 服务管理面板\n\n"
+    cm = input("  Hyperf Mall 服务管理面板\n\n"
                + string +
                "\n\n-----------------------------\n\n"
-               "    服务执行Hypref命令：服务编号后面+1\n"
+               "    执行Hyperf命令：服务编号+1\n"
                "    特殊命令 99->一键安装\n\n"
                "-----------------------------\n "
-               "请输入要执行的命令编号：")
+               "请输入要执行的命令：")
 
     if cm not in service_index:
         if cm in cmd_service:
