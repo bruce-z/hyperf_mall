@@ -80,13 +80,13 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 体验传送门：暂无
 
-[线上小程序端地址](https://gitee.com/scwlkj/hyperf_mall_wechat) 
+[线上小程序端地址](https://gitee.com/scwlkj/hypref_mall_wechat) 
 
 ### 管理后台
 
 体验传送门：https://admin.51job.top
 
-[管理后台地址 ](https://gitee.com/scwlkj/hyperf_mall_font)
+[管理后台地址 ](https://gitee.com/scwlkj/hypref_mall_font)
 
 
 
