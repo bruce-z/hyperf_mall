@@ -13,12 +13,12 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 
 ### 安装说明
-   _第一次安装，建议使用Hyperf Mall服务管理面板进行安装；
+   _第一次安装，建议使用Hyprf Mall服务管理面板进行安装；
 
     提前准备好Docker, Node >= v10.21.0. 系统默认占用端口:5503-5508 5566-5569。
 
 - 自动安装(推荐！)
-   1. windows 下 运行install目录下的 hyperf_mall_service.exe 命令``99``一键安装
+   1. windows 下 运行install目录下的 Hyperf_mall_service.exe 命令``99``一键安装
    2. linux 下 执行 python ./main.py (python版本 > 3.0)
     运行后如下图：
   
@@ -30,19 +30,19 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
     1. 代码下载， 仓库地址：
 
-            1. 路由层：https://gitee.com/scwlkj/hypref_mall_admin.git
+            1. 路由层：https://gitee.com/scwlkj/Hyperf_mall_admin.git
 
-            2. 图片API:https://gitee.com/scwlkj/hypref_mall_images.git
+            2. 图片API:https://gitee.com/scwlkj/Hyperf_mall_images.git
 
-            3. 支付API：https://gitee.com/scwlkj/hypref_mall_pay.git
+            3. 支付API：https://gitee.com/scwlkj/Hyperf_mall_pay.git
 
-            4. 配置服务：https://gitee.com/scwlkj/hypref_mall_config.git
+            4. 配置服务：https://gitee.com/scwlkj/Hyperf_mall_config.git
 
-            5. 商品服务：https://gitee.com/scwlkj/hypref_mall_goods.git
+            5. 商品服务：https://gitee.com/scwlkj/Hyperf_mall_goods.git
 
-            6. 订单服务:https://gitee.com/scwlkj/hypref_mall_order.git
+            6. 订单服务:https://gitee.com/scwlkj/Hyperf_mall_order.git
 
-            7. 会员服务:https://gitee.com/scwlkj/hypref_mall_member.git
+            7. 会员服务:https://gitee.com/scwlkj/Hyperf_mall_member.git
         
         下载对应的项目代码    
 
@@ -80,13 +80,13 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 体验传送门：暂无
 
-[线上小程序端地址](https://gitee.com/scwlkj/hypref_mall_wechat) 
+[线上小程序端地址](https://gitee.com/scwlkj/Hyperf_mall_wechat) 
 
 ### 管理后台
 
 体验传送门：https://admin.51job.top
 
-[管理后台地址 ](https://gitee.com/scwlkj/hypref_mall_font)
+[管理后台地址 ](https://gitee.com/scwlkj/Hyperf_mall_font)
 
 
 
@@ -94,7 +94,7 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 1. RPC服务内置一键生成命令，生成基于单个数据表，对外提供的增删改查服务命令.
 2. 路由服务内置一键生成 服务间调用的配置 命令，免去每个接口都手动去配置一遍的烦恼，让关注点聚焦业务.
-3. 基于Hypref，具有高性能、高并发处理优势，具备协程级控制，服务的注册、接口限流、接口熔断、服务监控等。
+3. 基于Hyperf，具有高性能、高并发处理优势，具备协程级控制，服务的注册、接口限流、接口熔断、服务监控等。
 
 ### 小程序端预览
 <img src="/images/xcx/index.jpg" width="20%">
