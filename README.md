@@ -30,19 +30,19 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
     1. 代码下载， 仓库地址：
 
-            1. 路由层：https://gitee.com/scwlkj/Hyperf_mall_admin.git
+            1. 路由层：https://gitee.com/scwlkj/hypref_mall_admin.git
 
-            2. 图片API:https://gitee.com/scwlkj/Hyperf_mall_images.git
+            2. 图片API:https://gitee.com/scwlkj/hypref_mall_images.git
 
-            3. 支付API：https://gitee.com/scwlkj/Hyperf_mall_pay.git
+            3. 支付API：https://gitee.com/scwlkj/hypref_mall_pay.git
 
-            4. 配置服务：https://gitee.com/scwlkj/Hyperf_mall_config.git
+            4. 配置服务：https://gitee.com/scwlkj/hypref_mall_config.git
 
-            5. 商品服务：https://gitee.com/scwlkj/Hyperf_mall_goods.git
+            5. 商品服务：https://gitee.com/scwlkj/hypref_mall_goods.git
 
-            6. 订单服务:https://gitee.com/scwlkj/Hyperf_mall_order.git
+            6. 订单服务:https://gitee.com/scwlkj/hypref_mall_order.git
 
-            7. 会员服务:https://gitee.com/scwlkj/Hyperf_mall_member.git
+            7. 会员服务:https://gitee.com/scwlkj/hypref_mall_member.git
         
         下载对应的项目代码    
 
