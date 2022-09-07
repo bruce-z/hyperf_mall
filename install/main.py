@@ -89,7 +89,14 @@ def start_container():
                "-----------------------------\n "
                "请输入要执行的命令：")
 
-    if cm not in service_index:
+    if cm == '99':
+        nnn = input("确认开始初始化,Yes / No \n")
+        if nnn == 'Yes' or nnn == 'yes':
+            initProject.init()
+        else:
+            pass
+
+    elif cm not in service_index:
         if cm in cmd_service:
             c = cm[0:1]
             mmm = input("输入命令,如：lazy:get config\n")
@@ -101,13 +108,6 @@ def start_container():
         else:
             print("\n命令未识别，请输入正确的命令\n")
             start_container()
-    elif cm == '99':
-        nnn = input("确认开始初始化,Yes / No \n")
-        if nnn == 'Yes' or nnn == 'yes':
-            initProject.init()
-        else:
-            pass
-        # start_container()
     else:
         name = serviceName[int(cm)]
         if name == 'all':
