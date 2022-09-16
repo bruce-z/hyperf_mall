@@ -63,7 +63,7 @@ def reload_web_admin():
 
 
 def reload_service(name):
-    if name == 'hypref_mall_font':
+    if name == 'hyperf_mall_font':
         reload_web_admin()
     else:
         try:
@@ -100,14 +100,15 @@ def start_container():
         if cm in cmd_service:
             c = cm[0:1]
             mmm = input("输入命令,如：lazy:get config\n")
-            if serviceName[int(c)] == 'hypref_mall_font':
+            if serviceName[int(c)] == 'hyperf_mall_font':
                 print("\nweb_admin不支持该命令\n")
             else:
                 os.system('docker exec ' + serviceName[int(c)] + ' php ' + config.service_project_dir
                           + '/bin/hyperf.php ' + mmm)
         else:
             print("\n命令未识别，请输入正确的命令\n")
-            start_container()
+
+        start_container()
     else:
         name = serviceName[int(cm)]
         if name == 'all':
@@ -116,7 +117,8 @@ def start_container():
                     task = threading.Thread(target=reload_service, args=(container_name,))
                     task.start()
         else:
-            reload_service(name)
+            task = threading.Thread(target=reload_service, args=(name,))
+            task.start()
     start_container()
 
 
