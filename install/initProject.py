@@ -32,6 +32,12 @@ def init():
             task.start()
 
 
+# 单独安装 web-admin
+def installAdmin():
+    task = threading.Thread(target=initWebAdmin)
+    task.start()
+
+
 # 初始化 web-admin
 def initWebAdmin():
     cc = os.popen("docker version")

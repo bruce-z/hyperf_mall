@@ -21,6 +21,8 @@ for index, name in enumerate(ch_names):
     index > 0 and cmd_service.append(str(index) + '1')
     service_index.append(str(index))
 
+string += "\n\n  98 ： 安装web_admin  |  99 ： 一键安装"
+
 # 混淆判断字符串
 mixString = "thisisjustnotifyend"
 
@@ -83,10 +85,8 @@ def start_container():
 
     cm = input("  Hyperf Mall 服务管理面板\n\n"
                + string +
-               "\n\n-----------------------------\n\n"
-               "    执行Hyperf命令：服务编号+1\n"
-               "    99：一键安装\n\n"
-               "-----------------------------\n "
+               "\n\n    执行Hyperf命令：服务编号+1\n"
+               "---------------------------------------\n "
                "请输入要执行的命令：")
 
     if cm == '99':
@@ -95,7 +95,9 @@ def start_container():
             initProject.init()
         else:
             pass
-
+    if cm == '98':
+        # 单独安装web-admin
+        initProject.installAdmin()
     elif cm not in service_index:
         if cm in cmd_service:
             c = cm[0:1]
