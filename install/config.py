@@ -116,6 +116,15 @@ web_admin = {
     'port': 5569
 }
 
+# pc 前端同步展示
+web_pc = {
+    'git_name': 'hyperf_mall_pc',  # git仓库名字 不可修改 -- 后台web站点
+    'service_name': 'hyperf_mall_pc',  # 名字被占用，如需修改，需要修改main.py中对应的值
+    'ch_name': 'pc端',
+    'port': 5570,
+    'db_name': False,
+},
+
 # 获取当前IP
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))

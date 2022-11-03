@@ -59,14 +59,55 @@ def reload_web_admin():
                     mm = os.popen('docker rm -f ' + service['images'])
                     if mixString not in mm.read():
                         print("\n " + service['images'] + "镜像已更新\n")
-                        os.popen('docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
-                                 + service['images'])
+                        os.popen(
+                            'docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                            + service['images'])
                         print("\n web admin已启动\n")
+
+
+def reload_web_pc():
+    service = config.web_pc
+    path = config.base_dir + service['git_name']
+    git_addr = config.git_pre + service['git_name'] + '.git'
+
+    if not os.path.isdir(path):
+        os.makedirs(path)
+        print("\n创建目录： " + path + "\n")
+        aa = os.popen('git clone ' + git_addr + ' ' + path)
+    else:
+        os.chdir(path)
+        aa = os.popen('git pull ')
+
+    print("\n开始下载代码" + path + "\n")
+
+    if mixString not in aa.read():
+        os.chdir(path)
+        ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build ')
+        print("\n web_admin 代码初始化完成,开始build\n")
+        if 'ERR' in ee.read():
+            print("\n 项目构建失败，请重试!\n")
+            return False
+
+        if mixString not in ee.read():
+            print("\n 构建成功!! 开始初始化运行环境\n")
+            cc = os.popen("docker pull nginx")
+            if mixString not in cc.read():
+                ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                if mixString not in ff.read():
+                    mm = os.popen('docker rm -f ' + service['images'])
+                    if mixString not in mm.read():
+                        print("\n " + service['images'] + "镜像已更新\n")
+                        os.popen(
+                            'docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                            + service['images'])
+                        print("\n web pc已启动\n")
 
 
 def reload_service(name):
     if name == 'hyperf_mall_font':
         reload_web_admin()
+    elif name == 'hyperf_mall_pc':
+        reload_web_pc()
     else:
         try:
             ee = os.popen('docker exec ' + name + ' bash -c "cd ' + config.service_project_dir + '&& git pull" ')
@@ -82,7 +123,6 @@ def reload_service(name):
 
 
 def start_container():
-
     cm = input("  Hyperf Mall 服务管理面板\n\n"
                + string +
                "\n\n    执行Hyperf命令：服务编号+1\n"
@@ -98,6 +138,9 @@ def start_container():
     if cm == '98':
         # 单独安装web-admin
         initProject.installAdmin()
+    if cm == '97':
+        # 单独安装web-admin
+        initProject.installPc()
     elif cm not in service_index:
         if cm in cmd_service:
             c = cm[0:1]
