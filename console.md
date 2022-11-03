@@ -102,6 +102,14 @@
 
 
 
+### 一键安装命令说明
+
+mysql服务、redis服务、web_pc 服务、 web_admin服务 单独安装流程
+
+其它服务均为正常hyperf项目安装流程
+
+...
+
 ### 一键CURL命令说明
 
 例如：orders模块下增加一个order_log表，实现常用的增删改查方法
@@ -142,6 +150,6 @@ app/Service/Orders/Interfaces/OrderLogServiceInterfaces.php
 * @method getRows(array $condition, array $field)
 * @method getOne(array $condition, array $field = ['*'])
 * @method appIndex(int $page, int $size)
-   ```
+```
 
 基于某些原因，路由服务的前后端增删改查未做自动生成，需要根据业务实现校验后调用对应方法

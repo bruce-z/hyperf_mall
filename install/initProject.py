@@ -31,7 +31,7 @@ def init():
 
     # 业务服务
     for service in config.services:
-        if service['git_name'] != 'hypref_mall_font':
+        if service['git_name'] != 'hypref_mall_font' and service['git_name'] != 'hypref_mall_admin' and service['git_name'] != 'hyperf_mall_pc':
             task = threading.Thread(target=initService, args=(service,))
             task.start()
 
