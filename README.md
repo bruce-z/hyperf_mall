@@ -17,7 +17,7 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
     提前需备必要环境：Git、Docker, Node >= v10.21.0. 系统默认占用端口:5503-5509 5566-5570。
 
    1. windows系统，下载install目录的 Hyperf_mall_service.exe 到本地，双击运行，根据提示输入命令``99``执行一键安装。
-   2. linux系统，下载install目录下的python代码，执行 python ./main.py (python版本 > 3.0)，根据提示输入命令``99``执行一键安装。
+   2. windows/linux系统，下载install目录下的python代码，执行 python ./main.py (python版本 > 3.0)，根据提示输入命令``99``执行一键安装。
     运行后如下图：
   
    ![脚本运行画面截图](images/run.png)
