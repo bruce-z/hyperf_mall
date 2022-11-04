@@ -38,9 +38,9 @@ Hyperf Mall 是一套开源的高性能微服务商城系统。是一款高扩�
 
 ### PC端
 
-体验传送门：https://pc.51job.top
+体验传送门：https://demo.51job.top
 
-[PC端体验地址](https://pc.51job.top)
+[PC端体验地址](https://demo.51job.top)
 
 ### 小程序端
 
