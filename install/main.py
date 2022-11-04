@@ -44,25 +44,23 @@ def reload_web_admin():
 
     if mixString not in aa.read():
         os.chdir(path)
-        ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build:prod ')
-        print("\n web_admin 代码初始化完成,开始build\n")
-        if 'ERR' in ee.read():
-            print("\n 项目构建失败，请重试!\n")
-            return False
-
-        if mixString not in ee.read():
-            print("\n 构建成功!! 开始初始化运行环境\n")
-            cc = os.popen("docker pull nginx")
-            if mixString not in cc.read():
-                ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
-                if mixString not in ff.read():
-                    mm = os.popen('docker rm -f ' + service['images'])
-                    if mixString not in mm.read():
-                        print("\n " + service['images'] + "镜像已更新\n")
-                        os.popen(
-                            'docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
-                            + service['images'])
-                        print("\n web admin已启动\n")
+        ff = os.popen('npm install --registry=https://registry.npm.taobao.org')
+        print("\n web_admin 扩展插件更新完成,开始build\n")
+        if mixString not in ff.read():
+            ee = os.popen("npm run build:prod")
+            if mixString not in ee.read():
+                print("\n 构建成功!! 开始初始化运行环境\n")
+                cc = os.popen("docker pull nginx")
+                if mixString not in cc.read():
+                    ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                    if mixString not in ff.read():
+                        mm = os.popen('docker rm -f ' + service['images'])
+                        if mixString not in mm.read():
+                            print("\n " + service['images'] + "镜像已更新\n")
+                            os.popen(
+                                'docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                                + service['images'])
+                            print("\n web admin已启动\n")
 
 
 def reload_web_pc():
@@ -82,25 +80,27 @@ def reload_web_pc():
 
     if mixString not in aa.read():
         os.chdir(path)
-        ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build ')
-        print("\n web_admin 代码初始化完成,开始build\n")
-        if 'ERR' in ee.read():
-            print("\n 项目构建失败，请重试!\n")
-            return False
+        ff = os.popen('npm install --registry=https://registry.npm.taobao.org')
+        if mixString not in ff.read():
+            print("\n web_admin 扩展插件更新完成,开始build\n")
+            ee = os.popen('npm run build')
+            if 'ERR' in ee.read():
+                print("\n 项目构建失败，请重试!\n")
+                return False
 
-        if mixString not in ee.read():
-            print("\n 构建成功!! 开始初始化运行环境\n")
-            cc = os.popen("docker pull nginx")
-            if mixString not in cc.read():
-                ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
-                if mixString not in ff.read():
-                    mm = os.popen('docker rm -f ' + service['images'])
-                    if mixString not in mm.read():
-                        print("\n " + service['images'] + "镜像已更新\n")
-                        os.popen(
-                            'docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
-                            + service['images'])
-                        print("\n web pc已启动\n")
+            if mixString not in ee.read():
+                print("\n 构建成功!! 开始初始化运行环境\n")
+                cc = os.popen("docker pull nginx")
+                if mixString not in cc.read():
+                    ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                    if mixString not in ff.read():
+                        mm = os.popen('docker rm -f ' + service['images'])
+                        if mixString not in mm.read():
+                            print("\n " + service['images'] + "镜像已更新\n")
+                            os.popen(
+                                'docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                                + service['images'])
+                            print("\n web pc已启动\n")
 
 
 def reload_service(name):
