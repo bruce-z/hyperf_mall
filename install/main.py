@@ -109,17 +109,21 @@ def reload_service(name):
     elif name == 'hyperf_mall_pc':
         reload_web_pc()
     else:
-        try:
-            ee = os.popen('docker exec ' + name + ' bash -c "cd ' + config.service_project_dir + '&& git pull" ')
-            if 'notkissme' in ee:
-                print("\n容器" + name + "git已pull\n")
+        service = config.services
+        for se in service:
+            if se["service_name"] == name:
+                path = config.base_dir + se['git_name']
+                os.chdir(path)
+                aa = os.popen('git pull ')
+                if 'notkissme' not in aa:
+                    print("\n" + name + "代码已更新,尝试启动服务...\n")
+                    try:
+                        os.system('docker start ' + name)
+                    finally:
+                        print("\n 尝试重启hyperf脚本 ...\n")
 
-            print("\n容器" + name + "关闭PHP进程...\n")
-            os.system('docker start ' + name)
-            os.system('docker exec ' + name + ' killall php')
-            os.system('docker exec ' + name + ' php ' + config.service_project_dir + '/bin/hyperf.php start')
-        finally:
-            print("\n容器" + name + "服务已开始重启 ...\n")
+                    os.system('docker exec ' + name + ' killall php')
+                    os.system('docker exec ' + name + ' php ' + config.service_project_dir + '/bin/hyperf.php start')
 
 
 def start_container():
