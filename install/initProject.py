@@ -25,11 +25,70 @@ def init():
     task = threading.Thread(target=initWebAdmin)
     task.start()
 
+    # web_pc 服务
+    task = threading.Thread(target=initWebPc)
+    task.start()
+
     # 业务服务
     for service in config.services:
         if service['git_name'] != 'hypref_mall_font':
             task = threading.Thread(target=initService, args=(service,))
             task.start()
+
+
+# 单独安装 admin vue
+def installAdmin():
+    task = threading.Thread(target=initWebAdmin)
+    task.start()
+
+
+# 单独安装 admin vue
+def installPc():
+    task = threading.Thread(target=initWebPc)
+    task.start()
+
+
+# 初始化 web-admin
+def initWebPc():
+    cc = os.popen("docker version")
+    if 'Version' not in cc.read():
+        print("\ndocker命令不存在，请检测docker是否已安装\n")
+        return False
+
+    service = config.web_pc
+    path = config.base_dir + service['git_name']
+    git_addr = config.git_pre + service['git_name'] + '.git'
+
+    if not os.path.isdir(path):
+        os.makedirs(path)
+        print("\n创建目录： " + path + "\n")
+        aa = os.popen('git clone ' + git_addr + ' ' + path)
+    else:
+        os.chdir(path)
+        aa = os.popen('git pull ')
+
+    print("\n开始下载代码" + path + "\n")
+
+    if mixString not in aa.read():
+        os.chdir(path)
+        ee = os.popen('npm install --registry=https://registry.npm.taobao.org')
+        if mixString not in ee.read():
+            print("\n web_admin 扩展插件更新完成,开始build\n")
+            ee = os.popen('npm run build')
+            if 'ERR!' in ee.read():
+                print("\n 项目构建失败，请重试!\n")
+                return False
+
+            if mixString not in ee.read():
+                print("\n 构建成功!! 开始初始运行环境\n")
+                cc = os.popen("docker pull nginx")
+                if mixString not in cc.read():
+                    ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                    if mixString not in ff.read():
+                        print("\n " + service['images'] + "镜像创建完成\n")
+                        os.popen('docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                                 + service['images'])
+                        print("\n pc admin已启动\n")
 
 
 # 初始化 web-admin
@@ -55,22 +114,24 @@ def initWebAdmin():
 
     if mixString not in aa.read():
         os.chdir(path)
-        ee = os.popen('npm install --registry=https://registry.npm.taobao.org && npm run build:prod ')
-        print("\n web_admin 代码初始化完成,开始build\n")
-        if 'ERR!' in ee.read():
-            print("\n 项目构建失败，请重试!\n")
-            return False
+        ff = os.popen('npm install --registry=https://registry.npm.taobao.org')
+        print("\n web_admin 扩展插件更新完成,开始build\n")
+        if mixString not in ff.read():
+            ee = os.popen("npm run build:prod")
+            if 'ERR!' in ee.read():
+                print("\n 项目构建失败，请重试!\n")
+                return False
 
-        if mixString not in ee.read():
-            print("\n 建成功!! 开始初始运行环境\n")
-            cc = os.popen("docker pull nginx")
-            if mixString not in cc.read():
-                ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
-                if mixString not in ff.read():
-                    print("\n " + service['images'] + "镜像创建完成\n")
-                    os.popen('docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
-                             + service['images'])
-                    print("\n web admin已启动\n")
+            if mixString not in ee.read():
+                print("\n build成功!! 开始初始运行环境\n")
+                cc = os.popen("docker pull nginx")
+                if mixString not in cc.read():
+                    ff = os.popen('docker build -t ' + service['images'] + ' ' + path)
+                    if mixString not in ff.read():
+                        print("\n " + service['images'] + "镜像创建完成\n")
+                        os.popen('docker run --name  ' + service['service_name'] + ' -d -p ' + str(service['port']) + ':80 '
+                                 + service['images'])
+                        print("\n web admin已启动\n")
 
 
 def initMysql():
